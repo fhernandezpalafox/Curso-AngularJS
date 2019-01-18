@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="miApp" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+
+   <div hola-mundo></div>
+
+   <attrsaludo nombre="Felipe" />
+
+    <script>
+    
+    var app  =  angular.module("miApp",[]);
+
+    app.directive('holaMundo',function(){
+       return {
+          template : 'Hola mundo desde vsCode'
+       };
+    });
+
+
+    app.directive("attrsaludo", function(){
+        var directive = {
+            restrict: 'E',
+            scope: {htmlnombre:'@nombre'},
+            template: "<div>Hola {{htmlnombre}}</div>",
+        };
+        return directive;
+    });
+    
+    </script>
+
+
+</body>
+</html>

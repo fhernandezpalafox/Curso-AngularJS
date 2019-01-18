@@ -1,0 +1,36 @@
+<html lang="en" ng-app="miApp" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+    
+   <div ng-controller="miControlador">
+
+    <input type="text" name="" id="" ng-model="nombre">
+
+    <input type="button" value="Cambiar" ng-click="cambiarNombre()" >
+
+    <label for="">{{nombreCambiado}}</label>
+   </div>
+
+    <script>
+    
+    var app  =  angular.module('miApp',[]);
+
+    app.controller('miControlador', function($scope){
+         $scope.nombre  = "";
+
+         $scope.nombreCambiado = "";
+
+         $scope.cambiarNombre =  function(){
+             $scope.nombreCambiado =  $scope.nombre;
+         }
+    });
+    </script>
+
+</body>
+</html>

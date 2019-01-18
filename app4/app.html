@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+    
+    <div ng-init="miColor='red'">
+        
+        <input 
+            type="text" 
+            name="" 
+            id="" 
+            style="color:{{ miColor }}" 
+            ng-model='miColor' />
+
+    </div>
+
+   <div style="clear: both; height: 10px;"></div>
+
+   <div ng-init="cantidad=5;costo=203.67">
+      <p>
+          Total de la venta es {{ cantidad *  costo}}
+      </p>
+   </div>
+   <div style="clear: both; height: 10px;"></div>
+
+   <div ng-init="nombre='Felipe';edad=29;apellidos='Hernandez'">
+
+     <p>
+         <strong>Nombre</strong> {{nombre}}
+         <strong>apellidos</strong> {{apellidos}}
+         <strong>Edad</strong> {{edad}}
+         
+     </p>
+      
+   </div>
+
+   <div style="clear: both; height: 10px;"></div>
+
+
+   <div ng-init="persona = {nombre:'Felipe',edad:29,apellidos:'Hernandez'}">
+
+    <p>
+        <strong>Nombre</strong> {{persona.nombre}}
+        <strong>apellidos</strong> {{persona.apellidos}}
+        <strong>Edad</strong> {{persona.edad}}
+        
+    </p>
+     
+  </div>
+
+
+  <div style="clear: both; height: 10px;"></div>
+
+  <div ng-init="calificaciones = [10,8,6,5]">
+
+    <span ng-bind="calificaciones[2]"></span>
+
+  </div>
+
+</body>
+</html>

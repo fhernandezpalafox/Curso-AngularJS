@@ -1,0 +1,42 @@
+<html lang="en" ng-app="miApp" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+    
+   <div ng-controller="miControlador">
+
+     <div>
+         <p>Nombre:  <input type="text" name="" id="" ng-model="nombre"> </p>
+     </div>
+
+     <div>
+        <p>Apellidos:  <input type="text" name="" id="" ng-model="apellidos"> </p>
+    </div>
+
+    <div style="clear: 20px;"></div>
+
+    <p>
+        Nombre completo {{ nombre + ' ' + apellidos}}
+    </p>
+
+   </div>
+
+    <script>
+    
+    var app  =  angular.module('miApp',[]);
+
+    app.controller('miControlador', function($scope){
+
+         $scope.nombre  = "Felipe";
+
+         $scope.apellidos = "Hernandez";
+    });
+    </script>
+
+</body>
+</html>

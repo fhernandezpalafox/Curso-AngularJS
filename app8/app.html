@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="miApp" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App 8- Filtros</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+        
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    
+<div ng-init="nombre='Felipe'; 
+                nombres = ['Oscar','Pedro','Lourdes']; 
+                costo=34.67">
+
+    <p> mi nombre es {{nombre | uppercase}}</p>
+
+    <div style="clear: both; height: 20px;"></div>
+
+    <p> mi nombre es {{nombre | lowercase}}</p>
+
+    <div style="clear: both; height: 20px;"></div>
+
+    <ul>
+        <li ng-repeat="x in nombres | orderBy:x">
+            {{x}}
+        </li>
+    </ul>
+
+    <div style="clear: both; height: 20px;"></div>
+
+    <h1>El costo {{costo | currency}}</h1>
+
+    <div style="clear: both; height: 20px;"></div>
+
+    <div ng-init="palabra">
+         <input type="text" name="" id="" ng-model="palabra">
+            <ul>
+                    <li ng-repeat="x in nombres | filter : palabra">
+                        {{x}}
+                    </li>
+                </ul>
+    </div>
+
+    <div style="clear: both; height: 20px;"></div>
+
+    <div ng-controller="miControlador">
+
+
+    <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col" ng-click="ordernarPor('nombre')" style="cursor:pointer" >Nombre</th>
+                <th scope="col" ng-click="ordernarPor('pais')"  style="cursor:pointer">Pais</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="x in nombres2 | orderBy: miOrdernacion">
+                <th scope="row">{{$index + 1}}</th>
+                <td>{{x.nombre}} </td>
+                <td>{{x.pais}}</td>
+              </tr>
+            </tbody>
+          </table>
+    
+        </div >     
+
+</div>
+
+<script>
+    
+        var app  =  angular.module('miApp',[]);
+    
+        app.controller('miControlador', function($scope){
+             
+            $scope.nombres2 = [
+                {nombre:'Ronaldo',pais:'Portugal'},
+                {nombre:'Felipe',pais:'USA'},
+                {nombre:'Miroslava', pais:'Rusia'}
+            ];
+
+            $scope.ordernarPor =  function(nombre){
+                $scope.miOrdernacion  = nombre;
+            }
+        });
+        </script>
+    
+
+</body>
+</html>
